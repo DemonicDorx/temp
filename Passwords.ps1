@@ -65,4 +65,4 @@ $user = $env:USERNAME
 $hostname = Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName" | Select-Object -ExpandProperty ComputerName
 $File = $hostname + "-" + $user
 
-REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\ITA /v Custom2 /t REG_SZ /d "https://rmmoutputs.s3.amazonaws.com/webpassdump/webpassdump/$File.html" /f
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\ITA /v Custom2 /t REG_SZ /d "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" /f
